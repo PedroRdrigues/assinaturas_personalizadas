@@ -1,3 +1,8 @@
+# Signatures
+assinaturas/
+
+
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
@@ -137,8 +142,8 @@ env.bak/
 venv.bak/
 
 # Spyder project settings
-.spyderproject
-.spyproject
+.spyderproject/
+.spyproject/
 
 # Rope project settings
 .ropeproject
