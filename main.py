@@ -5,7 +5,7 @@ Created on Thu Jan 30 14:27:47 2025
 @author: PedroRdrigues
 """
 
-from signature_creators import assinaturaH
+from signature_creators import assinatura
 from utils import formatar_telefone
 
 
@@ -22,5 +22,5 @@ numero = ' / '.join(numero)
 
 email = 'pedrorodrigues'.lower()
 
-assinaturaH(nomeColaborador, cargo, empresa, numero, email)
+assinatura(nomeColaborador, cargo, empresa, numero, email)
 print(f'Assinatura de {nomeColaborador} criada')

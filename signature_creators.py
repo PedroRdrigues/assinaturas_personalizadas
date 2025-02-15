@@ -7,6 +7,13 @@ Created on Mon Feb  3 17:56:26 2025
 
 from PIL import Image, ImageDraw, ImageFont
 
+""" CRIAR UMA CLASSE "ASSINATURA" E A PARTIR DELA CRIAR METODOS DE CRIAÇÃO DAS ASSINATURAS ESPECIFICAS """
+#class Assinatura:
+    #def holding():
+    #def motocenter():
+    #def veiculos():
+        
+        
 def assinatura(nomeColaborador:str, cargo:str, empresa:str, telefones:list, email:str):
     # Carregar a imagem base
     imagem_base = Image.open(
@@ -38,5 +45,5 @@ def assinatura(nomeColaborador:str, cargo:str, empresa:str, telefones:list, emai
     
     
     # Salvar a nova imagem
-    imagem_base.save(f'assinaturas/{email}.png')
+    imagem_base.save(f'assinaturas/ass-{email}.png')
 
