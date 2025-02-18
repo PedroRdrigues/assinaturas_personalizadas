@@ -11,8 +11,15 @@ import requests
 url = 'http://127.0.0.1:8000/image001.jpg'
 
 # Caminho do arquivo onde você quer salvar a imagem
-caminho_arquivo = f'C:\\Users\\{getpass.getuser(\
+caminho_outlook = f'C:\\Users\\{getpass.getuser(\
 )}\\AppData\\Roaming\\Microsoft\\Assinaturas\\testes_arquivos\\image001.jpg'
+    
+caminho_thunderbird = f'C:\\Users\\{getpass.getuser()}\\Pictures\\ass-{email}.png'
+
+if option == outlook:
+    caminho_arquivo = caminho_outlook
+else:
+    caminho_arquivo = caminho_thunderbird
 
 # Baixando a imagem
 response = requests.get(url)
