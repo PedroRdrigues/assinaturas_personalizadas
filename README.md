@@ -8,7 +8,7 @@ Deve ser alocado no C:/Windows/ para que não tenha fácil acesso do usuário.
 Ao executar o Setup, deve ser iniciado uma interface para que possa ser feita o ajuste para configuração (usuário e gerenciador de e-mail).
 
 
-Ao ser executado, cria um arquivo .xml onde estará contendo informações de usuário e gerenciador de e-mail.
+Ao ser executado, o Setup cria um arquivo .xml onde estará contendo informações de usuário e gerenciador de e-mail.
 
 
 O arquivo .xml estará dentro do diretório users com o nome do usuário do colaborador, por exemplo usuario.xml.

@@ -4,6 +4,7 @@ Created on Thu Feb  6 10:59:33 2025
 
 @author: PedroRdrigues
 """
+
 import getpass
 import requests
 
