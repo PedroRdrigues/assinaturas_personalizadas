@@ -16,10 +16,14 @@ cargo = 'Auxiliar de TI'
 
 empresa = 'Mônaco Participações'
 
-numero = " / ".join(formatar_telefone(['9130758492', '91992512077']))
+fone = '9130758492'
 
+cell = '91992512077'
+
+contatos = " / ".join(formatar_telefone([fone, cell]))
 
 email = 'pedrorodrigues'.lower()
 
-Assinatura(nomeColaborador, cargo, empresa, numero, email)
+
+Assinatura(nomeColaborador, cargo, empresa, contatos, email)
 print(f'Assinatura de {nomeColaborador} criada')

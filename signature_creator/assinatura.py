@@ -15,26 +15,26 @@ class Assinatura:
     nomeColaborador:str
     cargo:str
     empresa:str
-    telefones:str
+    contatos:str
     email:str
     
     def __post_init__(self):
         if 'Motocenter' in self.empresa:
             print(f'Created siginature from {self.empresa}')
-            self.motocenter(self.nomeColaborador, self.cargo, self.empresa, self.telefones, self.email)
+            self.motocenter(self.nomeColaborador, self.cargo, self.empresa, self.contatos, self.email)
             
         elif 'Veículos' in self.empresa or 'Fiat' in self.empresa:
             print(f'Created siginature from {self.empresa}')
-            self.veiculos(self.nomeColaborador, self.cargo, self.empresa, self.telefones, self.email)
+            self.veiculos(self.nomeColaborador, self.cargo, self.empresa, self.contatos, self.email)
             
         elif 'Participações' in self.empresa:
             print(f'Created siginature from {self.empresa}')
-            self.holding(self.nomeColaborador, self.cargo, self.empresa, self.telefones, self.email)
+            self.holding(self.nomeColaborador, self.cargo, self.empresa, self.contatos, self.email)
     
     
         
     @staticmethod    
-    def motocenter(nomeColaborador:str, cargo:str, empresa:str, telefones:str, email:str):
+    def motocenter(nomeColaborador:str, cargo:str, empresa:str, contatos:str, email:str):
         # Carregar a imagem base
         imagem_base = Image.open(
             'assets/img-base/ass-honda.png')
@@ -56,7 +56,7 @@ class Assinatura:
             'assets/fonts/Montserrat-Medium.ttf', 13))
         
         # NUMERO
-        draw.text((43, 108),str(telefones), fill='#fff', font=ImageFont.truetype(
+        draw.text((43, 108),str(contatos), fill='#fff', font=ImageFont.truetype(
             'assets/fonts/Montserrat-Medium.ttf', 12))
         
         #E-MAIL
@@ -69,7 +69,7 @@ class Assinatura:
         
         
     @staticmethod
-    def holding(nomeColaborador:str, cargo:str, empresa:str, telefones:list, email:str):
+    def holding(nomeColaborador:str, cargo:str, empresa:str, contatos:list, email:str):
         # Carregar a imagem base
         imagem_base = Image.open(
             'assets/img-base/ass-holding.png')
@@ -90,8 +90,8 @@ class Assinatura:
         draw.text((43, 82), empresa, fill='#000', font=ImageFont.truetype(
             'assets/fonts/Montserrat-Regular.ttf', 13.5))
         
-        # NUMERO
-        draw.text((43, 100),str(telefones), fill='#000', font=ImageFont.truetype(
+        # CONTATOS
+        draw.text((43, 100),str(contatos), fill='#000', font=ImageFont.truetype(
             'assets/fonts/Montserrat-Regular.ttf', 13.5))
         
         #E-MAIL
@@ -104,7 +104,7 @@ class Assinatura:
         
         
     @staticmethod    
-    def veiculos(nomeColaborador:str, cargo:str, empresa:str, telefones:list, email:str):
+    def veiculos(nomeColaborador:str, cargo:str, empresa:str, contatos:list, email:str):
         # Carregar a imagem base
         imagem_base = Image.open(
             'assets/img-base/ass-fiat.png')
@@ -126,7 +126,7 @@ class Assinatura:
             'assets/fonts/Montserrat-Medium.ttf', 12))
         
         # NUMERO
-        draw.text((43, 108),str(telefones), fill='#fff', font=ImageFont.truetype(
+        draw.text((43, 108),str(contatos), fill='#fff', font=ImageFont.truetype(
             'assets/fonts/Montserrat-Medium.ttf', 12))
         
         #E-MAIL
