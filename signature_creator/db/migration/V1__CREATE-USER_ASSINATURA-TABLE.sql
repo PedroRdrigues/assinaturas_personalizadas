@@ -8,3 +8,4 @@ CREATE TABLE user_assinatura(
     email VARCHAR2(20) NOT NULL,
     PRIMARY KEY (id_user)
 );
+

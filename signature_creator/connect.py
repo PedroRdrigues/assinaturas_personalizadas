@@ -5,33 +5,61 @@ Created on Mon Feb  3 16:29:21 2025
 @author: PedroRdrigues
 """
 
+from dataclasses import dataclass, field
 import cx_Oracle
+from tkinter import messagebox
 
 
 """ FAZER A CONEXÃO COM O BANCO DE DADOS """
 
+@dataclass
+class UserAssinatura:
+    id_user:str = field(init=False)
+    nome:str = field(init=False)
+    cargo:str = field(init=False)
+    empresa:str = field(init=False)
+    telefone:str = field(init=False)
+    celeular:str = field(init=False)
+    email_user:str
+    
+    
 
-# Parâmetros de conexão (ajuste conforme necessário)
-username = 'DEV'
-password = 'Monaco@2025'
-dsn = 'localhost:1521/XEPDB1'  # O DSN padrão do Oracle XE (ajuste conforme seu banco)
+    def __post_init__(self):
+        self.user_data = list  
+        self.select_user()
+        
+        print(self.user_data)
+        return self.user_data
+    
+    def connect_db(self): # Estabelece uma conexão com o db e cria um corsor
+        try:
+            self.connection = cx_Oracle.connect(
+                'DEV', 'Monaco@2025', 'localhost:1521/XEPDB1')
+    
+            self.cursor = self.connection.cursor()
+        
+        except cx_Oracle.DatabaseError as e:
+            messagebox.showerror(
+              title='AutoSign',
+              message=f"Erro ao conectar ao banco de dados: {e}"
+              )
+            
+            self.cursor.close()
+            self.connection.close()
 
-try:
-    # Estabelecendo a conexão
-    connection = cx_Oracle.connect(username, password, dsn)
-    print("Conexão bem-sucedida!")
+    def close_db(self): # Fechar a conexão e o cursor
+        self.cursor.close()
+        self.connection.close()
+        
+    def select_user(self):  # Consulta no db
+        self.connect_db()
 
-    # Criando um cursor para executar consultas SQL
-    cursor = connection.cursor()
+        self.cursor.execute("""
+                            SELECT * FROM user_assinatura 
+                            WHERE email_user = :email_user
+                            """,
+                            {'email_user': self.email_user})
+        
+        self.user_data = [u for u in self.cursor]
+        self.nome = self.user_data[0][1]
 
-    # Exemplo de consulta SQL
-    cursor.execute("SELECT * FROM user_assinatura")
-    for row in cursor:
-        print(row)
-
-except cx_Oracle.DatabaseError as e:
-    print(f"Erro ao conectar ao banco de dados: {e}")
-finally:
-    # Fechar a conexão e o cursor
-    cursor.close()
-    connection.close()

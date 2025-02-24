@@ -6,24 +6,39 @@ Created on Thu Jan 30 14:27:47 2025
 """
 
 from assinatura import Assinatura
+from connect import UserAssinatura
 from utils import formatar_telefone
 
 
-nomeColaborador = 'Pedro Henrique Rodrigues'.strip().title().split(' ')
-nomeColaborador = f"{nomeColaborador[0]} {nomeColaborador[-1]}"
+user = UserAssinatura('PEDRORODRIGUES')
 
-cargo = 'Auxiliar de TI'
+print(user.email_user)
+print(user.nome)
 
-empresa = 'Mônaco Participações'
-
-fone = '9130758492'
-
-cell = '91992512077'
-
-contatos = " / ".join(formatar_telefone([fone, cell]))
-
-email = 'pedrorodrigues'.lower()
+print(user.id_user)
+print(user.cargo)
+print(user.empresa)
+print(user.telefone)
+print(user.celeular)
 
 
-Assinatura(nomeColaborador, cargo, empresa, contatos, email)
-print(f'Assinatura de {nomeColaborador} criada')
+
+
+# nomeColaborador = 'Pedro Henrique Rodrigues'.strip().title().split(' ')
+# nomeColaborador = f"{nomeColaborador[0]} {nomeColaborador[-1]}"
+
+# cargo = 'Auxiliar de TI'
+
+# empresa = 'Mônaco Participações'
+
+# fone = None
+
+# cell = '91992512077'
+
+# contatos = " / ".join(formatar_telefone([fone, cell]))
+
+# email = 'pedrorodrigues'.lower()
+
+
+# Assinatura(nomeColaborador, cargo, empresa, contatos, email)
+# print(f'Assinatura de {nomeColaborador} criada')
