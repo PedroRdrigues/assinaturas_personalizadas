@@ -8,6 +8,13 @@ Created on Thu Feb  6 10:59:33 2025
 import getpass
 import requests
 
+
+
+"""INTERFACE PARA CONFIGURAÇÃO DO USUÁRIO E SELEÇÃO DE OPÇÕES DE PROGRAMA GERENCIADOR DE E-MAIL"""
+
+
+
+
 # URL da imagem
 url = 'http://127.0.0.1:8000/image001.jpg'
 
@@ -16,6 +23,8 @@ caminho_outlook = f'C:\\Users\\{getpass.getuser(\
 )}\\AppData\\Roaming\\Microsoft\\Assinaturas\\testes_arquivos\\image001.jpg'
     
 caminho_thunderbird = f'C:\\Users\\{getpass.getuser()}\\Pictures\\ass-{email}.png'
+
+
 
 if option == outlook:
     caminho_arquivo = caminho_outlook
