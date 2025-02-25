@@ -5,10 +5,12 @@ Created on Sat Feb 15 11:09:54 2025
 @author: PedroRdrigues
 """
 
-""" CRIAR UMA INTERFACE QUE POSSA SER UTILIZADA PARA A CONFIGURAÇÃO DA ASSINATURA DO COLABORADOR """
-
-
 import customtkinter
+import configparser
+from os import path, mkdir
+
+
+""" CRIAR UMA INTERFACE QUE POSSA SER UTILIZADA PARA A CONFIGURAÇÃO DA ASSINATURA DO COLABORADOR """
 
 
 class App(customtkinter.CTk):
@@ -19,7 +21,7 @@ class App(customtkinter.CTk):
 
     def windows(self):
         self.title("AutoSign")
-        self.geometry("400x150")
+        self.geometry("400x180")
         self.resizable(False, False)
         self.grid_columnconfigure((0, 1), weight=1)
 
@@ -28,7 +30,7 @@ class App(customtkinter.CTk):
         self.entry = customtkinter.CTkEntry(
             self, placeholder_text="E-mail User")
         self.entry.grid(row=0, column=0, padx=20, pady=(
-            0, 20), sticky="ew", columnspan=2)
+            20, 20), sticky="ew", columnspan=2)
 
         # Checkbox para configuração do Outlook.
         self.checkbox_outlook = customtkinter.CTkCheckBox(self, text="Outlook")
@@ -48,8 +50,32 @@ class App(customtkinter.CTk):
                          sticky="ew", columnspan=2)
 
     def button_callback(self):
-        print("Assinatura criada!")
-        print(self.entry.get())
+        option = str
+        
+        if self.checkbox_outlook.get() == 1: option = 'OUTLOOK'
+        if self.checkbox_thunderbird.get() == 1: option = 'THUNDERBIRD'
+
+        # Conexão com o arquivo .ini
+        config = configparser.ConfigParser()
+
+        # Cria as seções e adicionar os valores
+        config["DEFAULT"] = {"AppName": "AutoSign", "Version": "1.0"}
+        
+        config["SERVER"] = {"Image": f"ass-{self.entry.get()}.png"}
+        
+        config["USER"] = {
+            "email": self.entry.get().upper().strip(),
+            "opiton": option
+        }
+        
+        # Criar pasta de usuários caso não exista
+        if not path.exists('users'):
+            mkdir('users')
+            
+        # Salvar arquivo modificado
+        with open(f"users\\{self.entry.get()}.ini", "w") as configfile:
+            config.write(configfile)
+
 
 
 App().mainloop()

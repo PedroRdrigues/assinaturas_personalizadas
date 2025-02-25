@@ -34,7 +34,7 @@ class UserAssinatura:
     def connect_db(self): # Estabelece uma conexão com o db e cria um corsor
         try:
             self.connection = cx_Oracle.connect(
-                'DEV', 'Monaco@2025', 'localhost:1521/XEPDB1')
+                'DEV', 'Monaco@2025', 'localhost:1521/XEPDB1') # usar configuração de um arquivo .ini
     
             self.cursor = self.connection.cursor()
         
@@ -58,8 +58,11 @@ class UserAssinatura:
                             SELECT * FROM user_assinatura 
                             WHERE email_user = :email_user
                             """,
-                            {'email_user': self.email_user})
+                            {'email_user': self.email_user.lower()})
         
         self.user_data = [u for u in self.cursor]
         self.nome = self.user_data[0][1]
+        
+        
+        """ CRIAR GETTERS E SETTERS PARA AS VARIAVEIS"""
 
