@@ -2,16 +2,16 @@
 
 ## Autosign
 
-Deve ser alocado no C:/Windows/ para que não tenha fácil acesso do usuário.
+- [x] Deve ser alocado no C:/Windows/ para que não tenha fácil acesso do usuário.
 
 
-Ao executar o Setup, deve ser iniciado uma interface para que possa ser feita o ajuste para configuração (usuário e gerenciador de e-mail).
+- [x] Ao executar o Setup, deve ser iniciado uma interface para que possa ser feita o ajuste para configuração (usuário e gerenciador de e-mail).
 
 
-Ao ser executado, o Setup cria um arquivo .xml onde estará contendo informações de usuário e gerenciador de e-mail.
+- [x] Ao ser executado, o Setup cria um arquivo .ini onde estará contendo informações de usuário e gerenciador de e-mail.
 
 
-O arquivo .xml estará dentro do diretório users com o nome do usuário do colaborador, por exemplo usuario.xml.
+- [x] O arquivo .ini estará dentro do diretório users com o nome do usuário do colaborador, por exemplo usuario.ini.
 
 
 O arquivo autosign.exe irá procurar pelo diretório users e realizará a atualização das assinaturas de todos os usuáirios.
