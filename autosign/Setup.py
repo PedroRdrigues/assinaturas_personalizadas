@@ -8,6 +8,7 @@ Created on Sat Feb 15 11:09:54 2025
 import customtkinter
 import configparser
 from os import path, mkdir
+from tkinter.filedialog import askopenfilename
 
 
 """ CRIAR UMA INTERFACE QUE POSSA SER UTILIZADA PARA A CONFIGURAÇÃO DA ASSINATURA DO COLABORADOR """
@@ -50,10 +51,14 @@ class App(customtkinter.CTk):
                          sticky="ew", columnspan=2)
 
     def button_callback(self):
+        # Verificação dos checkboxs com as opções
         option = str
         
-        if self.checkbox_outlook.get() == 1: option = 'OUTLOOK'
-        if self.checkbox_thunderbird.get() == 1: option = 'THUNDERBIRD'
+        if self.checkbox_outlook.get() == 1: option = 'Outlook'
+        if self.checkbox_thunderbird.get() == 1:
+            option = 'ThunderBird'
+            filepath = askopenfilename()
+            
 
         # Conexão com o arquivo .ini
         config = configparser.ConfigParser()
@@ -61,12 +66,15 @@ class App(customtkinter.CTk):
         # Cria as seções e adicionar os valores
         config["DEFAULT"] = {"AppName": "AutoSign", "Version": "1.0"}
         
-        config["SERVER"] = {"Image": f"ass-{self.entry.get()}.png"}
+        config["SERVER"] = {"Image": f"ass-{self.entry.get().lower()}.png"}
         
         config["USER"] = {
-            "email": self.entry.get().upper().strip(),
-            "opiton": option
+            "email": self.entry.get().lower().strip(),
+            "option": option
         }
+        
+        if option == 'ThunderBird':
+            config.set("USER", 'path', filepath)
         
         # Criar pasta de usuários caso não exista
         if not path.exists('users'):
