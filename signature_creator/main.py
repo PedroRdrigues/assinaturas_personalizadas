@@ -10,35 +10,23 @@ from connect import UserAssinatura
 from utils import formatar_telefone
 
 
-user = UserAssinatura('PEDRORODRIGUES')
+user = UserAssinatura('ulisses.fiat')
 
-print(user.email_user)
-print(user.nome)
+nomeColaborador = user.nome.strip().title().split(' ')
+nomeColaborador = f"{nomeColaborador[0]} {nomeColaborador[-1]}"
 
-print(user.id_user)
-print(user.cargo)
-print(user.empresa)
-print(user.telefone)
-print(user.celeular)
+cargo = user.cargo
 
+empresa = user.empresa
 
+fone = user.telefone
 
+cell = user.celular
 
-# nomeColaborador = 'Pedro Henrique Rodrigues'.strip().title().split(' ')
-# nomeColaborador = f"{nomeColaborador[0]} {nomeColaborador[-1]}"
+contatos = " / ".join(formatar_telefone([fone, cell]))
 
-# cargo = 'Auxiliar de TI'
-
-# empresa = 'Mônaco Participações'
-
-# fone = None
-
-# cell = '91992512077'
-
-# contatos = " / ".join(formatar_telefone([fone, cell]))
-
-# email = 'pedrorodrigues'.lower()
+email = user.email_user.lower()
 
 
-# Assinatura(nomeColaborador, cargo, empresa, contatos, email)
-# print(f'Assinatura de {nomeColaborador} criada')
+Assinatura(nomeColaborador, cargo, empresa, contatos, email)
+print(f'Assinatura de {nomeColaborador} criada')

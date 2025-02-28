@@ -28,8 +28,8 @@ class UserAssinatura:
         self.user_data = list  
         self.select_user()
         
-        print(self.user_data)
         return self.user_data
+    
     
     def connect_db(self): # Estabelece uma conexão com o db e cria um corsor
         try:
@@ -37,7 +37,7 @@ class UserAssinatura:
                 'DEV', 'Monaco@2025', 'localhost:1521/XEPDB1') # usar configuração de um arquivo .ini
     
             self.cursor = self.connection.cursor()
-        
+  
         except cx_Oracle.DatabaseError as e:
             messagebox.showerror(
               title='AutoSign',
@@ -47,9 +47,11 @@ class UserAssinatura:
             self.cursor.close()
             self.connection.close()
 
+
     def close_db(self): # Fechar a conexão e o cursor
         self.cursor.close()
         self.connection.close()
+
         
     def select_user(self):  # Consulta no db
         self.connect_db()
@@ -58,11 +60,19 @@ class UserAssinatura:
                             SELECT * FROM user_assinatura 
                             WHERE email_user = :email_user
                             """,
-                            {'email_user': self.email_user.lower()})
+                            {'email_user': self.email_user})
+        
         
         self.user_data = [u for u in self.cursor]
-        self.nome = self.user_data[0][1]
-        
-        
-        """ CRIAR GETTERS E SETTERS PARA AS VARIAVEIS"""
+        self.setDatas()
 
+        
+    def setDatas(self):
+        self.id_user = self.user_data[0][0]
+        self.nome = self.user_data[0][1]
+        self.cargo = self.user_data[0][2]
+        self.empresa = self.user_data[0][3]
+        self.telefone = self.user_data[0][4]
+        self.celular = self.user_data[0][5]
+        
+        
