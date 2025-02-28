@@ -19,15 +19,15 @@ class Assinatura:
     email:str
     
     def __post_init__(self):
-        if 'Motocenter' in self.empresa:
+        if 'Motocenter' in self.empresa.title():
             print(f'Created siginature from {self.empresa}')
             self.motocenter(self.nomeColaborador, self.cargo, self.empresa, self.contatos, self.email)
             
-        elif 'Veículos' in self.empresa or 'Fiat' in self.empresa:
+        elif 'Veículos' in self.empresa.title() or 'Fiat' in self.empresa.title():
             print(f'Created siginature from {self.empresa}')
             self.veiculos(self.nomeColaborador, self.cargo, self.empresa, self.contatos, self.email)
             
-        elif 'Participações' in self.empresa:
+        elif 'Participações' in self.empresa.title():
             print(f'Created siginature from {self.empresa}')
             self.holding(self.nomeColaborador, self.cargo, self.empresa, self.contatos, self.email)
     
