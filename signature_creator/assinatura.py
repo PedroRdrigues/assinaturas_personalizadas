@@ -30,6 +30,8 @@ class Assinatura:
         elif 'Participações' in self.empresa.title():
             print(f'Created siginature from {self.empresa}')
             self.holding(self.nomeColaborador, self.cargo, self.empresa, self.contatos, self.email)
+        
+        
     
     
         
@@ -63,9 +65,7 @@ class Assinatura:
         draw.text((43, 123), f'{email}@grupomonaco.com.br', fill='#fff',
                   font=ImageFont.truetype('assets/fonts/Montserrat-Medium.ttf', 12))
         
-        
-        # Salvar a nova imagem
-        imagem_base.save(f'assinaturas/ass-{email}.png')
+        Assinatura.saveImage(imagem_base, email)
         
         
     @staticmethod
@@ -98,9 +98,7 @@ class Assinatura:
         draw.text((43, 117), f'{email}@grupomonaco.com.br', fill='#000',
                   font=ImageFont.truetype('assets/fonts/Montserrat-Regular.ttf', 13.5))
         
-        
-        # Salvar a nova imagem
-        imagem_base.save(f'assinaturas/ass-{email}.png')
+        Assinatura.saveImage(imagem_base, email)
         
         
     @staticmethod    
@@ -132,8 +130,11 @@ class Assinatura:
         #E-MAIL
         draw.text((43, 123), f'{email}@grupomonaco.com.br', fill='#fff',
                   font=ImageFont.truetype('assets/fonts/Montserrat-Medium.ttf', 12))
+                
+        Assinatura.saveImage(imagem_base, email)
         
         
-        # Salvar a nova imagem
+    # Salvar a nova imagem
+    @staticmethod
+    def saveImage(imagem_base, email):
         imagem_base.save(f'assinaturas/ass-{email}.png')
-    

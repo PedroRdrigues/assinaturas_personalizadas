@@ -10,7 +10,7 @@ from connect import UserAssinatura
 from utils import formatar_telefone
 
 
-user = UserAssinatura('ulisses.fiat')
+user = UserAssinatura('giovanni.mt')
 
 nomeColaborador = user.nome.strip().title().split(' ')
 nomeColaborador = f"{nomeColaborador[0]} {nomeColaborador[-1]}"

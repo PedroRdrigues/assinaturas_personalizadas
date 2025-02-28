@@ -8,10 +8,10 @@ Created on Sat Feb 15 11:09:54 2025
 import customtkinter
 import configparser
 from os import path, mkdir
-from tkinter.filedialog import askopenfilename
+from tkinter.filedialog import askdirectory
 
 
-""" CRIAR UMA INTERFACE QUE POSSA SER UTILIZADA PARA A CONFIGURAÇÃO DA ASSINATURA DO COLABORADOR """
+""" CRIA UMA INTERFACE QUE POSSA SER UTILIZADA PARA A CONFIGURAÇÃO DA ASSINATURA DO COLABORADOR """
 
 
 class App(customtkinter.CTk):
@@ -57,7 +57,8 @@ class App(customtkinter.CTk):
         if self.checkbox_outlook.get() == 1: option = 'Outlook'
         if self.checkbox_thunderbird.get() == 1:
             option = 'ThunderBird'
-            filepath = askopenfilename()
+            filepath = askdirectory()
+            print('filepath: ', filepath)
             
 
         # Conexão com o arquivo .ini

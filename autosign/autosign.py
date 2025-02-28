@@ -37,10 +37,11 @@ for user in listdir("users/"):
     
     # Caminho do arquivo onde você quer salvar a imagem    
     if option == 'Outlook': # Salva dentro dos arquivos internos do outlook 2010
-        caminho_arquivo = f'C:\\Users\\{getpass.getuser()}\\AppData\\Roaming\\Microsoft\\Assinaturas\\testes_arquivos\\image001.jpg'
+        caminho_arquivo = f'C:\\Users\\{getpass.getuser()}\\AppData\\Roaming\\Microsoft\\Assinaturas\\123teste_arquivos\\image001.jpg'
     
     elif option == 'ThunderBird': # Deve ser selecionado onde irá ser salvo a assinatura
-        caminho_arquivo = config["USER"]["path"]
+        caminho_arquivo = f'{config["USER"]["path"]}\\{image}'
+
     
     
     try:

@@ -10,7 +10,7 @@ import cx_Oracle
 from tkinter import messagebox
 
 
-""" FAZER A CONEXÃO COM O BANCO DE DADOS """
+""" FAZ A CONEXÃO COM O BANCO DE DADOS """
 
 @dataclass
 class UserAssinatura:
@@ -26,7 +26,7 @@ class UserAssinatura:
 
     def __post_init__(self):
         self.user_data = list  
-        self.select_user()
+        self.select_userData()
         
         return self.user_data
     
@@ -46,14 +46,14 @@ class UserAssinatura:
             
             self.cursor.close()
             self.connection.close()
-
+        
 
     def close_db(self): # Fechar a conexão e o cursor
         self.cursor.close()
         self.connection.close()
 
         
-    def select_user(self):  # Consulta no db
+    def select_userData(self):  # Consulta no db
         self.connect_db()
 
         self.cursor.execute("""
@@ -65,6 +65,7 @@ class UserAssinatura:
         
         self.user_data = [u for u in self.cursor]
         self.setDatas()
+        self.close_db()
 
         
     def setDatas(self):
