@@ -12,25 +12,8 @@ from tkinter import messagebox
 
 """ FAZ A CONEXÃO COM O BANCO DE DADOS """
 
-@dataclass
-class UserAssinatura:
-    id_user:str = field(init=False)
-    nome:str = field(init=False)
-    cargo:str = field(init=False)
-    empresa:str = field(init=False)
-    telefone:str = field(init=False)
-    celeular:str = field(init=False)
-    email_user:str
-    
-    
 
-    def __post_init__(self):
-        self.user_data = list  
-        self.select_userData()
-        
-        return self.user_data
-    
-    
+class DB:
     def connect_db(self): # Estabelece uma conexão com o db e cria um corsor
         try:
             self.connection = cx_Oracle.connect(
@@ -52,7 +35,31 @@ class UserAssinatura:
         self.cursor.close()
         self.connection.close()
 
+    
+    def countTable(self):
+        print("count Table")
         
+
+
+@dataclass
+class UserAssinatura(DB):
+    id_user:str = field(init=False)
+    nome:str = field(init=False)
+    cargo:str = field(init=False)
+    empresa:str = field(init=False)
+    telefone:str = field(init=False)
+    celeular:str = field(init=False)
+    email_user:str
+    
+    
+
+    def __post_init__(self):
+        self.user_data = list  
+        self.select_userData()
+        
+        return self.user_data
+    
+    
     def select_userData(self):  # Consulta no db
         self.connect_db()
 

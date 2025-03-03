@@ -6,27 +6,50 @@ Created on Thu Jan 30 14:27:47 2025
 """
 
 from assinatura import Assinatura
-from connect import UserAssinatura
+from connect import UserAssinatura, DB
 from utils import formatar_telefone
 
+DB.countTable()
 
-user = UserAssinatura('giovanni.mt')
 
-nomeColaborador = user.nome.strip().title().split(' ')
+nomeColaborador = "Pedro Henrique Rodriguese de Sá".strip().title().split(' ')
 nomeColaborador = f"{nomeColaborador[0]} {nomeColaborador[-1]}"
 
-cargo = user.cargo
+cargo = "Auxiliar de TI"
 
-empresa = user.empresa
+empresa = "Mônaco Participações"
 
-fone = user.telefone
+fone = None
 
-cell = user.celular
+cell = "91992512077"
 
 contatos = " / ".join(formatar_telefone([fone, cell]))
 
-email = user.email_user.lower()
+email ="pedrorodrigues".lower()
 
 
 Assinatura(nomeColaborador, cargo, empresa, contatos, email)
 print(f'Assinatura de {nomeColaborador} criada')
+
+
+
+# user = UserAssinatura('giovanni.mt')
+
+# nomeColaborador = user.nome.strip().title().split(' ')
+# nomeColaborador = f"{nomeColaborador[0]} {nomeColaborador[-1]}"
+
+# cargo = user.cargo
+
+# empresa = user.empresa
+
+# fone = user.telefone
+
+# cell = user.celular
+
+# contatos = " / ".join(formatar_telefone([fone, cell]))
+
+# email = user.email_user.lower()
+
+
+# Assinatura(nomeColaborador, cargo, empresa, contatos, email)
+# print(f'Assinatura de {nomeColaborador} criada')
