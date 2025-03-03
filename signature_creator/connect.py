@@ -26,7 +26,9 @@ class UserAssinatura:
 
     def __post_init__(self):
         self.user_data = list  
+        self.count = list  
         self.select_userData()
+        
         
         return self.user_data
     
@@ -76,4 +78,17 @@ class UserAssinatura:
         self.telefone = self.user_data[0][4]
         self.celular = self.user_data[0][5]
         
+    
+    """ CRIAR UMA FUNÇÃO PARA FAZER A CONTAGEM DE USUÁRIOS DENTRO DO DB """
+    @staticmethod
+    def countUsers():
+        UserAssinatura.connect_db()
+        
+        
+        UserAssinatura.cursor.execute("SELECT COUNT(*) FROM user_assinatura")
+        UserAssinatura.count = [u for u in UserAssinatura.cursor]
+        UserAssinatura.count = UserAssinatura.count[0][0]
+        UserAssinatura.close_db()
+        
+    
         

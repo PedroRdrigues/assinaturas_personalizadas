@@ -10,7 +10,11 @@ from connect import UserAssinatura
 from utils import formatar_telefone
 
 
-user = UserAssinatura('giovanni.mt')
+
+for i in int(UserAssinatura.countUsers()):
+    print(i)
+
+user = UserAssinatura('pedrorodrigues')
 
 nomeColaborador = user.nome.strip().title().split(' ')
 nomeColaborador = f"{nomeColaborador[0]} {nomeColaborador[-1]}"
@@ -30,3 +34,8 @@ email = user.email_user.lower()
 
 Assinatura(nomeColaborador, cargo, empresa, contatos, email)
 print(f'Assinatura de {nomeColaborador} criada')
+
+
+
+""" CRIAR UMA COLUNA NO DB PARA USUÁRIOS COM O NOME DA ASSINATURA DESEJAM SER ALTERADOS
+    E CASO A COLUNA ESTEJA VAZIA PARA ALGUM USUÁRIO ELE UTILIZARÁ O PADRÃO DO PROGRAMA """

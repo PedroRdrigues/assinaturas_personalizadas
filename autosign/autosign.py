@@ -12,7 +12,7 @@ import configparser
 from os import listdir
 
 
-"""INTERFACE PARA CONFIGURAÇÃO DO USUÁRIO E SELEÇÃO DE OPÇÕES DE PROGRAMA GERENCIADOR DE E-MAIL"""
+""" EXECUTA O DOWNLOAD DA IMAGEM E DIRECIONA PARA O DIRETÓRIO CORRESPONDENTE """
 
 
 for user in listdir("users/"):
