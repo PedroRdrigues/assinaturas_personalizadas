@@ -4,7 +4,7 @@ save_data_on_exit = True
 save_history = True
 save_non_project_files = False
 project_type = 'empty-project-type'
-recent_files = ['signature_creator\\main.py', 'signature_creator\\connect.py', 'autosign\\autosign.py', 'autosign\\Setup.py', 'README.md']
+recent_files = ['autosign\\Setup.py', 'autosign\\autosign.py', 'signature_creator\\main.py', 'signature_creator\\connect.py', 'signature_creator\\assinatura.py']
 
 [main]
 version = 0.2.0
