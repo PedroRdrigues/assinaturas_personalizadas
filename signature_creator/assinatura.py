@@ -138,3 +138,19 @@ class Assinatura:
     @staticmethod
     def saveImage(imagem_base, email):
         imagem_base.save(f'assinaturas/ass-{email}.png')
+        
+        """ CRIAR UMA FORMA DE SALVAR A IMAGEM EM UM SERVIDOR """
+        import requests
+        
+        url = "http://localhost:8000"  # Substitua pelo URL do seu servidor
+        
+        # Abra a imagem no modo binário
+        with open("assinaturas/ass-pedrorodrigues.png", "rb") as img:
+            files = {"file": img}  # O dicionário deve conter a chave esperada pelo servidor
+            response = requests.post(url, files=files)
+        
+        # Verificar a resposta do servidor
+        if response.status_code == 200:
+            print("Imagem enviada com sucesso!")
+        else:
+            print(f"Erro ao enviar imagem: {response.status_code} - {response.text}")

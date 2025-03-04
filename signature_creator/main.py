@@ -11,29 +11,49 @@ from utils import formatar_telefone
 
 
 
-for i in int(UserAssinatura.countUsers()):
-    print(i)
-
-user = UserAssinatura('pedrorodrigues')
-
-nomeColaborador = user.nome.strip().title().split(' ')
+nomeColaborador = "Pedro Henrique Rodrigues de Sá".strip().title().split(' ')
 nomeColaborador = f"{nomeColaborador[0]} {nomeColaborador[-1]}"
 
-cargo = user.cargo
+cargo = "Auxiliar de Suporte de TI"
 
-empresa = user.empresa
+empresa = "Mônaco Motocenter"
 
-fone = user.telefone
+fone = None
 
-cell = user.celular
+cell = "91992512077"
 
 contatos = " / ".join(formatar_telefone([fone, cell]))
 
-email = user.email_user.lower()
+email = "pedrorodrigues".lower()
 
 
 Assinatura(nomeColaborador, cargo, empresa, contatos, email)
 print(f'Assinatura de {nomeColaborador} criada')
+
+
+# for i in int(UserAssinatura.countUsers()):
+#     print(i)
+
+# user = UserAssinatura('pedrorodrigues')
+
+# nomeColaborador = user.nome.strip().title().split(' ')
+# nomeColaborador = f"{nomeColaborador[0]} {nomeColaborador[-1]}"
+
+# cargo = user.cargo
+
+# empresa = user.empresa
+
+# fone = user.telefone
+
+# cell = user.celular
+
+# contatos = " / ".join(formatar_telefone([fone, cell]))
+
+# email = user.email_user.lower()
+
+
+# Assinatura(nomeColaborador, cargo, empresa, contatos, email)
+# print(f'Assinatura de {nomeColaborador} criada')
 
 
 
