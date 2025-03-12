@@ -17,7 +17,7 @@
 - [x] O arquivo autosign.exe irá procurar pelo diretório users e realizará a atualização das assinaturas de todos os usuáirios.
 
 
-Caso um usuário não seja encontrado, o autosign irá excluir o arquivo .ini do respectivo usuário.
+- [ ] Caso um usuário não seja encontrado, o autosign irá excluir o arquivo .ini do respectivo usuário.
 
 
 
