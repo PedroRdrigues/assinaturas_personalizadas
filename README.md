@@ -14,10 +14,10 @@
 - [x] O arquivo .ini estará dentro do diretório users com o nome do usuário do colaborador, por exemplo usuario.ini.
 
 
-O arquivo autosign.exe irá procurar pelo diretório users e realizará a atualização das assinaturas de todos os usuáirios.
+- [x] O arquivo autosign.exe irá procurar pelo diretório users e realizará a atualização das assinaturas de todos os usuáirios.
 
 
-Caso um usuário não seja encontrado, o autosign irá excluir o arquivo .xml do respectivo usuário.
+Caso um usuário não seja encontrado, o autosign irá excluir o arquivo .ini do respectivo usuário.
 
 
 
