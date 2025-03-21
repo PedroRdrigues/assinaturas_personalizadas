@@ -23,7 +23,7 @@
 
 ## Signature Creator
 
-Faz a conexão com o banco de dados e realiza a criação das assinaturas de todos os colaboradores
+- [x] Faz a conexão com o banco de dados e realiza a criação das assinaturas de todos os colaboradores
 
 
-Envia as assinaturas atualizadas para um Web Server para que possam ser armazenadas e disponibilizadas para o *_autosigin_*
+- [ ] Envia as assinaturas atualizadas para um Web Server para que possam ser armazenadas e disponibilizadas para o *_autosigin_*
